@@ -1,1 +1,1 @@
-# xrcity.github.io
+Please view the main website at https://xrcity.framer.website/
