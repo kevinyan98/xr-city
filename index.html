@@ -37,6 +37,7 @@
             background-color: transparent;
             text-align: center;
             padding: 10px 0;
+            margin: 20px;
         }
         .footer-content {
             width: 100%;
@@ -78,13 +79,13 @@
         }
         .dropdown-button {
             background-color: transparent;
+            justify-self: center;
             border: none;
             color: #fff;
             cursor: pointer;
             width: 40px;
             height: 40px;
             transition: transform 0.3s ease-in-out;
-            margin-left: 20px; /* 保持与右侧内容的间距 */
         }
         .dropdown-button:hover {
             transform: rotate(45deg);
@@ -167,7 +168,7 @@
             pointer-events: none;
             mix-blend-mode: difference;
             background-color: white;
-            z-index: 1002;
+            z-index: 2000;
         }
     </style>
 </head>
@@ -193,6 +194,7 @@
     <div id="dropdown-overlay" class="dropdown-overlay">
         <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
         <button class="close-btn" onclick="toggleDropdown()">✕</button>
+        
         <div class="dropdown-content">
             <a href="https://xrcity.framer.website/start">START</a>
             <a href="https://xrcity.framer.website/before-and-after">BEFORE&AFTER</a>
