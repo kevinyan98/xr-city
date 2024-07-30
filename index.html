@@ -14,27 +14,40 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            cursor: none; /* 隐藏默认光标 */
         }
         header, footer {
             display: flex;
+            font-weight: bold;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
             background-color: #111;
+            z-index: 1001;
         }
         header {
-            position: flex;
-            padding-left: 10px;
+            position: fixed;
             top: 0;
-            width: 100%;
-            z-index: 1000;
+            width: calc(100% - 40px); /* 保留左右20px的空隙 */
         }
         footer {
             position: fixed;
             bottom: 0;
-            width: 100%;
+            width: calc(100% - 40px); /* 保留左右20px的空隙 */
+            background-color: transparent;
             text-align: center;
             padding: 10px 0;
+        }
+        .footer-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: 810px) {
+            .footer-content {
+                flex-direction: column;
+            }
         }
         .content {
             padding-top: 60px;
@@ -47,7 +60,7 @@
             text-transform: uppercase;
             margin: 0;
         }
-        .github-button {
+        .github-button, .github-header-button {
             background-color: #fff;
             font-size: 18px;
             color: #000;
@@ -56,16 +69,25 @@
             text-decoration: none;
             font-weight: bold;
         }
-        .github-button:hover {
+        .github-button:hover, .github-header-button:hover {
             background-color: #ddd;
             font-weight: bold;
+        }
+        .github-header-button {
+            margin-left: auto; /* 保持在右上角 */
         }
         .dropdown-button {
             background-color: transparent;
             border: none;
             color: #fff;
-            font-size: 24px;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease-in-out;
+            margin-left: 20px; /* 保持与右侧内容的间距 */
+        }
+        .dropdown-button:hover {
+            transform: rotate(45deg);
         }
         .dropdown-overlay {
             display: none;
@@ -97,56 +119,79 @@
         .dropdown-content a:hover {
             color: #ddd;
         }
-
         .dropdown-footer {
+            display: flex;
+            justify-content: center;
             position: fixed;
-            bottom: 0;
+            bottom: 10px;
             width: 100%;
-            background-color: #111;
-            text-align: center;
-            padding: 10px 0;
+            background-color: transparent;
         }
-
+        .dropdown-footer a {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .dropdown-footer a:hover {
+            color: #ddd;
+        }
         .close-btn {
             position: absolute;
-            top: 20px;
-          background-color: transparent;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
             border: none;
             color: white;
             font-size: 24px;
             cursor: pointer;
         }
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        
         .duck-model {
             width: 100%;
             height: 600px;
+        }
+        .local-time {
+            font-weight: bolder;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 16px;
+        }
+        .custom-cursor {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            background-color: white;
+            z-index: 1002;
         }
     </style>
 </head>
 <body>
     <header>
         <div>SEPT 7-8, Los Angeles</div>
-        <!-- <div id="local-time">LOCAL / 00:00:00</div> -->
-        <button class="dropdown-button" onclick="toggleDropdown()">...</button>
-        <a href="https://github.com" target="_blank" class="github-button">GITHUB</a>
+        <button class="dropdown-button" onclick="toggleDropdown()">
+            <img src="assets/menu.svg" alt="menu" style="width: 100%; height: 100%;">
+        </button>
+        <a href="https://github.com" target="_blank" class="github-header-button">GITHUB</a>
     </header>
-    <model-viewer class="duck-model" src="assets/Duck.glb"
-    camera-controls></model-viewer>
+    <div class="content">
+        <div class="title">XR CITY</div>
+        <div class="ar-experience">FEATURES</div>
+        <model-viewer class="duck-model" src="assets/Duck.glb" camera-controls></model-viewer>
+    </div>
     <footer>
-        <div>
-            <div id="local-time">LOCAL / 00:00:00</div>
-            <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
-            <a href="https://dribbble.com" target="_blank">DRIBBBLE ➤</a>
-            <a href="https://twitter.com" target="_blank">TWITTER ➤</a>
+        <div class="footer-content">
+            <div>SCI-Arc Graduate Thesis 24</div>
+            <div>BY HANYANG YAN & GAO SUN</div>
         </div>
     </footer>
-
     <div id="dropdown-overlay" class="dropdown-overlay">
+        <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
         <button class="close-btn" onclick="toggleDropdown()">✕</button>
         <div class="dropdown-content">
             <a href="https://xrcity.framer.website/start">START</a>
@@ -154,16 +199,18 @@
             <a href="https://xrcity.framer.website/ar-experience">AR EXPERIENCE</a>
             <a href="#link3">FEATURES</a>
         </div>
-    </div class="dropdown-footer">
-    
+        <div class="dropdown-footer">
+            <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
+            <a href="https://dribbble.com" target="_blank">DRIBBBLE ➤</a>
+            <a href="https://twitter.com" target="_blank">TWITTER ➤</a>
+        </div>
     </div>
-
+    <div class="custom-cursor" id="custom-cursor"></div>
     <script>
         function toggleDropdown() {
             const overlay = document.getElementById('dropdown-overlay');
             overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
         }
-
         function updateTime() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
@@ -171,9 +218,13 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             document.getElementById('local-time').innerText = `LOCAL / ${hours}:${minutes}:${seconds}`;
         }
-
         setInterval(updateTime, 1000);
         updateTime();
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.getElementById('custom-cursor');
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
     </script>
 </body>
 </html>
