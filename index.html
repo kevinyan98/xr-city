@@ -130,11 +130,14 @@
         }
         .dropdown-content a span.primary-text {
             display: inline-block;
-            transition: opacity 0.3s ease-in-out;
         }
         .dropdown-content a:hover span.primary-text {
             opacity: 0;
         }
+        .dropdown-content a:not(:hover) span.primary-text {
+            opacity: 0;
+        }
+
         .dropdown-content a::before,
         .dropdown-content a::after {
             content: attr(data-text);
