@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,11 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            cursor: none !important; /* 隐藏默认光标 */
+            cursor: none !important;
+            /* 隐藏默认光标 */
         }
-        header, footer {
+        header,
+        footer {
             display: flex;
             font-weight: bold;
             justify-content: space-between;
@@ -28,12 +31,14 @@
         header {
             position: fixed;
             top: 0;
-            width: calc(100% - 40px); /* 保留左右20px的空隙 */
+            width: calc(100% - 40px);
+            /* 保留左右20px的空隙 */
         }
         footer {
             position: fixed;
             bottom: 0;
-            width: calc(100% - 40px); /* 保留左右20px的空隙 */
+            width: calc(100% - 40px);
+            /* 保留左右20px的空隙 */
             background-color: transparent;
             text-align: center;
             padding: 10px 0;
@@ -61,7 +66,8 @@
             text-transform: uppercase;
             margin: 0;
         }
-        .github-button, .github-header-button {
+        .github-button,
+        .github-header-button {
             background-color: #fff;
             font-size: 18px;
             color: #000;
@@ -70,12 +76,14 @@
             text-decoration: none;
             font-weight: bold;
         }
-        .github-button:hover, .github-header-button:hover {
+        .github-button:hover,
+        .github-header-button:hover {
             background-color: #ddd;
             font-weight: bold;
         }
         .github-header-button {
-            margin-left: auto; /* 保持在右上角 */
+            margin-left: auto;
+            /* 保持在右上角 */
         }
         .dropdown-button {
             background-color: transparent;
@@ -119,6 +127,13 @@
             margin: 10px 0;
             position: relative;
             overflow: hidden;
+        }
+        .dropdown-content a span.primary-text {
+            display: inline-block;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .dropdown-content a:hover span.primary-text {
+            opacity: 0;
         }
         .dropdown-content a::before,
         .dropdown-content a::after {
@@ -219,10 +234,12 @@
         <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
         <button class="close-btn" onclick="toggleDropdown()">✕</button>
         <div class="dropdown-content">
-            <a href="https://xrcity.framer.website/start" data-text="START">START</a>
-            <a href="https://xrcity.framer.website/before-and-after" data-text="BEFORE&AFTER">BEFORE&AFTER</a>
-            <a href="https://xrcity.framer.website/ar-experience" data-text="AR EXPERIENCE">AR EXPERIENCE</a>
-            <a href="#link3" data-text="FEATURES">FEATURES</a>
+            <a href="https://xrcity.framer.website/start" data-text="START"><span class="primary-text">START</span></a>
+            <a href="https://xrcity.framer.website/before-and-after" data-text="BEFORE&AFTER"><span
+                    class="primary-text">BEFORE&AFTER</span></a>
+            <a href="https://xrcity.framer.website/ar-experience" data-text="AR EXPERIENCE"><span
+                    class="primary-text">AR EXPERIENCE</span></a>
+            <a href="#link3" data-text="FEATURES"><span class="primary-text">FEATURES</span></a>
         </div>
         <div class="dropdown-footer">
             <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
@@ -245,7 +262,7 @@
         }
         setInterval(updateTime, 1000);
         updateTime();
-        document.addEventListener('mousemove', function(e) {
+        document.addEventListener('mousemove', function (e) {
             const cursor = document.getElementById('custom-cursor');
             cursor.style.left = e.pageX + 'px';
             cursor.style.top = e.pageY + 'px';
