@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            cursor: none; /* 隐藏默认光标 */
+            cursor: none !important; /* 隐藏默认光标 */
         }
         header, footer {
             display: flex;
@@ -109,6 +109,7 @@
             align-items: center;
             justify-content: center;
             height: 100%;
+            position: relative;
         }
         .dropdown-content a {
             font-size: 72px;
@@ -116,9 +117,32 @@
             color: white;
             text-decoration: none;
             margin: 10px 0;
+            position: relative;
+            overflow: hidden;
         }
-        .dropdown-content a:hover {
+        .dropdown-content a::before,
+        .dropdown-content a::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        .dropdown-content a::before {
+            top: 0;
+            transform: translateY(0);
+        }
+        .dropdown-content a::after {
+            top: 100%;
+            transform: translateY(0);
             color: #ddd;
+        }
+        .dropdown-content a:hover::before {
+            transform: translateY(-100%);
+        }
+        .dropdown-content a:hover::after {
+            transform: translateY(-100%);
         }
         .dropdown-footer {
             display: flex;
@@ -194,12 +218,11 @@
     <div id="dropdown-overlay" class="dropdown-overlay">
         <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
         <button class="close-btn" onclick="toggleDropdown()">✕</button>
-        
         <div class="dropdown-content">
-            <a href="https://xrcity.framer.website/start">START</a>
-            <a href="https://xrcity.framer.website/before-and-after">BEFORE&AFTER</a>
-            <a href="https://xrcity.framer.website/ar-experience">AR EXPERIENCE</a>
-            <a href="#link3">FEATURES</a>
+            <a href="https://xrcity.framer.website/start" data-text="START">START</a>
+            <a href="https://xrcity.framer.website/before-and-after" data-text="BEFORE&AFTER">BEFORE&AFTER</a>
+            <a href="https://xrcity.framer.website/ar-experience" data-text="AR EXPERIENCE">AR EXPERIENCE</a>
+            <a href="#link3" data-text="FEATURES">FEATURES</a>
         </div>
         <div class="dropdown-footer">
             <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
