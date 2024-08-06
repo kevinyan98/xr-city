@@ -16,7 +16,6 @@
             padding: 0;
             overflow-x: hidden;
             cursor: none !important;
-            /* 隐藏默认光标 */
         }
         header,
         footer {
@@ -32,13 +31,11 @@
             position: fixed;
             top: 0;
             width: calc(100% - 40px);
-            /* 保留左右20px的空隙 */
         }
         footer {
             position: fixed;
             bottom: 0;
             width: calc(100% - 40px);
-            /* 保留左右20px的空隙 */
             background-color: transparent;
             text-align: center;
             padding: 10px 0;
@@ -83,7 +80,6 @@
         }
         .github-header-button {
             margin-left: auto;
-            /* 保持在右上角 */
         }
         .dropdown-button {
             background-color: transparent;
@@ -94,9 +90,12 @@
             width: 40px;
             height: 40px;
             transition: transform 0.3s ease-in-out;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .dropdown-button:hover {
-            transform: rotate(45deg);
+            transform: translateX(-50%) rotate(45deg);
         }
         .dropdown-overlay {
             display: none;
@@ -137,7 +136,6 @@
         .dropdown-content a:not(:hover) span.primary-text {
             opacity: 0;
         }
-
         .dropdown-content a::before,
         .dropdown-content a::after {
             content: attr(data-text);
@@ -220,7 +218,7 @@
         <button class="dropdown-button" onclick="toggleDropdown()">
             <img src="assets/menu.svg" alt="menu" style="width: 100%; height: 100%;">
         </button>
-        <a href="https://github.com" target="_blank" class="github-header-button">GITHUB</a>
+        <a href="https://github.com/kevinyan98/xr-city" target="_blank" class="github-header-button">GITHUB</a>
     </header>
     <div class="content">
         <div class="title">XR CITY</div>
@@ -236,13 +234,14 @@
     <div id="dropdown-overlay" class="dropdown-overlay">
         <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
         <button class="close-btn" onclick="toggleDropdown()">✕</button>
+        <a href="https://github.com/kevinyan98/xr-city" target="_blank" class="github-header-button" style="position: absolute; top: 20px; right: 20px;">GITHUB</a>
         <div class="dropdown-content">
             <a href="https://xrcity.framer.website/start" data-text="START"><span class="primary-text">START</span></a>
             <a href="https://xrcity.framer.website/before-and-after" data-text="BEFORE&AFTER"><span
                     class="primary-text">BEFORE&AFTER</span></a>
             <a href="https://xrcity.framer.website/ar-experience" data-text="AR EXPERIENCE"><span
-                    class="primary-text">AR EXPERIENCE</span></a>
-            <a href="#link3" data-text="FEATURES"><span class="primary-text">FEATURES</span></a>
+                    class="primary-text">AR EXPERIENCE"></span></a>
+            <a href="#link3" data-text="FEATURES"><span class="primary-text">FEATURES"></span></a>
         </div>
         <div class="dropdown-footer">
             <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
