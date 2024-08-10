@@ -17,9 +17,7 @@ Project Designer: Hanyang Yan, Gao Sun
 
 Project Instructor: Elena Manferdini
 
-UX Designer & Web Developer: Hanyang Yan
-
-Model Builder: Gao Sun
+UX Designer & Web Developer: Hanyang Yan, Gao Sun
 
 Web Development Instructor: Anthony Tran
 
