@@ -17,6 +17,7 @@
             overflow-x: hidden;
             cursor: none !important;
         }
+
         header,
         footer {
             display: flex;
@@ -27,11 +28,13 @@
             background-color: #111;
             z-index: 1001;
         }
+
         header {
             position: fixed;
             top: 0;
             width: calc(100% - 40px);
         }
+
         footer {
             position: fixed;
             bottom: 0;
@@ -41,28 +44,33 @@
             padding: 10px 0;
             margin: 20px;
         }
+
         .footer-content {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         @media (max-width: 810px) {
             .footer-content {
                 flex-direction: column;
             }
         }
+
         .content {
             padding-top: 60px;
             padding-bottom: 40px;
             text-align: center;
         }
+
         .title {
             font-size: 72px;
             font-weight: bold;
             text-transform: uppercase;
             margin: 0;
         }
+
         .github-button,
         .github-header-button {
             background-color: #fff;
@@ -72,15 +80,19 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            transition: height 0.3s ease-in-out;
         }
+
         .github-button:hover,
         .github-header-button:hover {
             background-color: #ddd;
             font-weight: bold;
         }
+
         .github-header-button {
             margin-left: auto;
         }
+
         .dropdown-button {
             background-color: transparent;
             justify-self: center;
@@ -94,9 +106,11 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
         .dropdown-button:hover {
             transform: translateX(-50%) rotate(45deg);
         }
+
         .dropdown-overlay {
             display: none;
             position: fixed;
@@ -110,6 +124,7 @@
             align-items: center;
             text-align: center;
         }
+
         .dropdown-content {
             display: flex;
             flex-direction: column;
@@ -118,6 +133,7 @@
             height: 100%;
             position: relative;
         }
+
         .dropdown-content a {
             font-size: 72px;
             font-weight: bold;
@@ -127,15 +143,19 @@
             position: relative;
             overflow: hidden;
         }
+
         .dropdown-content a span.primary-text {
             display: inline-block;
         }
+
         .dropdown-content a:hover span.primary-text {
             opacity: 0;
         }
+
         .dropdown-content a:not(:hover) span.primary-text {
             opacity: 0;
         }
+
         .dropdown-content a::before,
         .dropdown-content a::after {
             content: attr(data-text);
@@ -145,21 +165,26 @@
             height: 100%;
             transition: transform 0.3s;
         }
+
         .dropdown-content a::before {
             top: 0;
             transform: translateY(0);
         }
+
         .dropdown-content a::after {
             top: 100%;
             transform: translateY(0);
             color: #ddd;
         }
+
         .dropdown-content a:hover::before {
             transform: translateY(-100%);
         }
+
         .dropdown-content a:hover::after {
             transform: translateY(-100%);
         }
+
         .dropdown-footer {
             display: flex;
             justify-content: center;
@@ -168,6 +193,7 @@
             width: 100%;
             background-color: transparent;
         }
+
         .dropdown-footer a {
             font-size: 16px;
             font-weight: bold;
@@ -175,24 +201,27 @@
             text-decoration: none;
             margin: 0 10px;
         }
+
         .dropdown-footer a:hover {
             color: #ddd;
         }
+
         .close-btn {
             position: absolute;
             top: 30px;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            right: 20px;
             background-color: transparent;
             border: none;
             color: white;
             font-size: 24px;
             cursor: pointer;
         }
+
         .duck-model {
             width: 100%;
             height: 600px;
         }
+
         .local-time {
             font-weight: bolder;
             position: absolute;
@@ -200,6 +229,7 @@
             left: 20px;
             font-size: 16px;
         }
+
         .custom-cursor {
             position: absolute;
             width: 15px;
@@ -210,15 +240,54 @@
             background-color: white;
             z-index: 2000;
         }
+
+        .no-style-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .no-style-link:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        @media (max-width: 810px) {
+            .title {
+                font-size: 16px;
+            }
+
+            .dropdown-content a {
+                font-size: 36px;
+            }
+
+            .dropdown-footer {
+                flex-direction: column;
+            }
+
+            .dropdown-footer a {
+                font-size: 16px;
+                margin: 5px 0;
+            }
+
+            .custom-cursor {
+                display: none;
+            }
+
+            .github-button,
+            .github-header-button {
+                height: 30px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
-        <div>SEPT 7-8, Los Angeles</div>
+        <a href="https://xrcity.framer.website/start" class="no-style-link">SEPT 7-8, Los Angeles</a>
         <button class="dropdown-button" onclick="toggleDropdown()">
             <img src="assets/menu.svg" alt="menu" style="width: 100%; height: 100%;">
         </button>
-        <a href="https://github.com/kevinyan98/xr-city" target="_blank" class="github-header-button">GITHUB</a>
+        <a href="https://github.com" target="_blank" class="github-header-button">GITHUB</a>
     </header>
     <div class="content">
         <div class="title">XR CITY</div>
@@ -234,14 +303,11 @@
     <div id="dropdown-overlay" class="dropdown-overlay">
         <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
         <button class="close-btn" onclick="toggleDropdown()">✕</button>
-        <a href="https://github.com/kevinyan98/xr-city" target="_blank" class="github-header-button" style="position: absolute; top: 20px; right: 20px;">GITHUB</a>
         <div class="dropdown-content">
             <a href="https://xrcity.framer.website/start" data-text="START"><span class="primary-text">START</span></a>
-            <a href="https://xrcity.framer.website/before-and-after" data-text="BEFORE&AFTER"><span
-                    class="primary-text">BEFORE&AFTER</span></a>
-            <a href="https://xrcity.framer.website/ar-experience" data-text="AR EXPERIENCE"><span
-                    class="primary-text">AR EXPERIENCE"></span></a>
-            <a href="#link3" data-text="FEATURES"><span class="primary-text">FEATURES"></span></a>
+            <a href="https://xrcity.framer.website/before-and-after" data-text="BEFORE&AFTER"><span class="primary-text">BEFORE&AFTER</span></a>
+            <a href="https://xrcity.framer.website/ar-experience" data-text="AR EXPERIENCE"><span class="primary-text">AR EXPERIENCE</span></a>
+            <a href="#link3" data-text="FEATURES"><span class="primary-text">FEATURES</span></a>
         </div>
         <div class="dropdown-footer">
             <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
@@ -253,22 +319,25 @@
     <script>
         function toggleDropdown() {
             const overlay = document.getElementById('dropdown-overlay');
-            overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+            overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
         }
-        function updateTime() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('local-time').innerText = `LOCAL / ${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
-        document.addEventListener('mousemove', function (e) {
+
+        document.addEventListener('mousemove', (e) => {
             const cursor = document.getElementById('custom-cursor');
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
         });
+
+        function updateLocalTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('local-time').textContent = `LOCAL / ${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateLocalTime, 1000);
     </script>
 </body>
+
 </html>
