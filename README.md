@@ -6,7 +6,8 @@ In the near future, digital media and urban space will become even more intertwi
 
 XR City explores the possibilities of overlaying various digital interfaces to transform architectural and urban spaces into canvases for art, play and educational adventures that encourage exploration and learning. xR not only makes cities more interesting and engaging, but also entices people who are used to living indoors to go out and experience the city.
 
-![Uploading 0806 (2).jpg…]()
+![0806 (2)](https://github.com/user-attachments/assets/0f0885ea-4669-4e3d-bb31-2d2c9db2e44a)
+
 
 
 ## Credit
