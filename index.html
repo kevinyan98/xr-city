@@ -64,6 +64,10 @@
             text-align: center;
         }
 
+        .small-title {
+            padding-top: 80px;
+        }
+
         .title {
             font-size: 72px;
             font-weight: bold;
@@ -139,7 +143,7 @@
             font-weight: bold;
             color: white;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 0px 0;
             position: relative;
             overflow: hidden;
         }
@@ -196,7 +200,7 @@
 
         .dropdown-footer a {
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             color: white;
             text-decoration: none;
             margin: 0 10px;
@@ -208,14 +212,26 @@
 
         .close-btn {
             position: absolute;
-            top: 30px;
-            right: 20px;
+            top: 20px;
             background-color: transparent;
             border: none;
             color: white;
             font-size: 24px;
             cursor: pointer;
+            right: 48%;
+            z-index: 3000;
         }
+
+        @media (max-width: 810px) {
+    .dropdown-content a:hover span.primary-text {
+        opacity: 1; /* Keep the text visible */
+    }
+
+    .dropdown-content a:hover::before,
+    .dropdown-content a:hover::after {
+        transform: translateY(0); /* Prevent the hover transition */
+    }
+}
 
         .duck-model {
             width: 100%;
@@ -223,7 +239,7 @@
         }
 
         .local-time {
-            font-weight: bolder;
+            font-weight: semibold;
             position: absolute;
             top: 20px;
             left: 20px;
@@ -253,7 +269,7 @@
 
         @media (max-width: 810px) {
             .title {
-                font-size: 16px;
+                font-size: 36px;
             }
 
             .dropdown-content a {
@@ -265,8 +281,9 @@
             }
 
             .dropdown-footer a {
-                font-size: 16px;
+                font-size: 14px;
                 margin: 5px 0;
+                line-height: 220%;
             }
 
             .custom-cursor {
@@ -275,7 +292,38 @@
 
             .github-button,
             .github-header-button {
-                height: 30px;
+                height: 14px;
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+
+            .local-time {
+                font-size: 14px;
+                display: none;
+            }
+
+            .dropdown-footer,
+            .footer-content {
+                width: 100%;
+                font-size: small;
+                font-weight: 600;
+                line-height: 210%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .body {
+                font-size: 14px;
+            }
+
+            .no-style-link {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .dropdown-button {
+                width: 30px;
             }
         }
     </style>
@@ -290,8 +338,8 @@
         <a href="https://github.com" target="_blank" class="github-header-button">GITHUB</a>
     </header>
     <div class="content">
+        <div class="small-title">FEATURES</div>
         <div class="title">XR CITY</div>
-        <div class="ar-experience">FEATURES</div>
         <model-viewer class="duck-model" src="assets/building.glb" camera-controls></model-viewer>
     </div>
     <footer>
@@ -310,16 +358,16 @@
             <a href="#link3" data-text="FEATURES"><span class="primary-text">FEATURES</span></a>
         </div>
         <div class="dropdown-footer">
-            <a href="https://instagram.com" target="_blank">INSTAGRAM ➤</a>
-            <a href="https://dribbble.com" target="_blank">DRIBBBLE ➤</a>
-            <a href="https://twitter.com" target="_blank">TWITTER ➤</a>
+            <a href="https://instagram.com" target="_blank">INSTAGRAM↗ </a>
+            <a href="https://twitter.com" target="_blank">TWITTER↗ </a>
+            <a href="https://dribble.com" target="_blank">DRIBBLE↗ </a>
         </div>
     </div>
-    <div class="custom-cursor" id="custom-cursor"></div>
+    <div id="custom-cursor" class="custom-cursor"></div>
     <script>
         function toggleDropdown() {
             const overlay = document.getElementById('dropdown-overlay');
-            overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
+            overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
         }
 
         document.addEventListener('mousemove', (e) => {
@@ -341,3 +389,4 @@
 </body>
 
 </html>
+
