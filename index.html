@@ -81,6 +81,38 @@
             margin: 0;
         }
 
+        .button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.icon-button:hover {
+    background-color: #000;
+    border: 2px solid #fff;
+}
+
+.icon-button:hover .icon {
+    filter: invert(1);
+}
+
+.icon {
+    width: 20px;
+    height: 30px;
+    transition: filter 0.3s ease-in-out;
+}
+
         .github-button,
         .github-header-button {
             background-color: #fff;
@@ -345,7 +377,14 @@
         <button class="dropdown-button" onclick="toggleDropdown()">
             <img src="assets/menu.svg" alt="menu" style="width: 100%; height: 100%;">
         </button>
-        <a href="https://github.com" target="_blank" class="github-header-button">GITHUB</a>
+        <div class="button-group">
+            <a href="https://github.com" target="_blank" class="icon-button">
+                <img src="assets/github_black.svg" alt="GitHub" class="icon">
+            </a>
+            <a href="https://xrcity.framer.website/start" target="_blank" class="icon-button">
+                <img src="assets/HOME_black.svg" alt="Home" class="icon">
+            </a>
+        </div>
     </header>
     <div class="content">
         <div class="small-title">FEATURES</div>
@@ -353,10 +392,6 @@
         <model-viewer class="duck-model" src="assets/building.glb" camera-controls></model-viewer>
     </div>
     <footer>
-        <div class="footer-content">
-            <div>SCI-Arc Graduate Thesis 24</div>
-            <div>BY HANYANG YAN & GAO SUN</div>
-        </div>
     </footer>
     <div id="dropdown-overlay" class="dropdown-overlay">
         <div class="local-time" id="local-time">LOCAL / 00:00:00</div>
